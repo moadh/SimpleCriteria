@@ -10,13 +10,13 @@ Public Class NouveauCritereSurNombre(Of T As IElementFiltrable)
     End Function
 
     Private Function Initialiser(critere As CritereSurValeur(Of T), valeur As Decimal) As CritereSurValeur(Of T)
-        critere.SetValeurCondition(valeur)
+        critere.SetArguments(valeur)
         critere.ValeurElementApartirDe(_GetValeurMethode)
         Return critere
     End Function
 
     Private Function Initialiser(critere As CritereSurValeur(Of T), valeurA As Decimal, valeurB As Decimal) As CritereSurValeur(Of T)
-        critere.SetValeurCondition(valeurA, valeurB)
+        critere.SetArguments(valeurA, valeurB)
         critere.ValeurElementApartirDe(_GetValeurMethode)
         Return critere
     End Function

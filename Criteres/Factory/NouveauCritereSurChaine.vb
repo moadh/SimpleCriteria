@@ -10,7 +10,7 @@ Public Class NouveauCritereSurChaine(Of T As IElementFiltrable)
     End Function
 
     Private Function Initialiser(critere As CritereSurValeur(Of T), valeur As String) As CritereSurValeur(Of T)
-        critere.SetValeurCondition(valeur)
+        critere.SetArguments(valeur)
         critere.ValeurElementApartirDe(_GetValeurMethode)
         Return critere
     End Function

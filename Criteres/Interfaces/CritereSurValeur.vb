@@ -1,4 +1,6 @@
-﻿Public MustInherit Class CritereSurValeur(Of T As IElementFiltrable)
+﻿''' <summary>Un critère qui récupère la valeur de l'élément à vérifier à l'aide d'une fonction déléguée</summary>
+''' <typeparam name="T">Le type de l'élément à vérifier</typeparam>
+Public MustInherit Class CritereSurValeur(Of T As IElementFiltrable)
     Inherits Critere(Of T)
 
 #Region "Définition de type"
@@ -15,27 +17,6 @@
     End Sub
 #End Region
 
-#Region "Arguments"
-    ''' <summary>raison pour laquelle l'argument est invalide</summary>
-    Protected _ArgumentsInvalid As String = "Arguments invalides pour ce prédicat"
-    Protected _NbArguments As Integer = 0
 
-    ''' <summary>définit les valeurs sur lesquelles ce critère va tester</summary>
-    Public Sub SetValeurCondition(ByVal ParamArray args() As Object)
-        If IsInvalidValeurs(args) Then Throw New ArgumentException(_ArgumentsInvalid)
-        InitValeurs(args)
-    End Sub
-
-    ''' <summary>On vérifie si tout les arguments attendus ont été bien renseigner</summary>
-    Protected Overridable Function IsInvalidValeurs(ParamArray args As Object()) As Boolean
-        Return False
-    End Function
-
-    ''' <summary>Définit les valeurs de ce critère</summary>
-    Protected Overridable Sub InitValeurs(ByVal ParamArray args() As Object)
-
-    End Sub
-
-#End Region
 
 End Class

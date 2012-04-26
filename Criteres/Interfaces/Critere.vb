@@ -3,10 +3,37 @@
 
 #Region "Propriétés"
     Public MustOverride ReadOnly Property SqlExpression As String Implements ICritere(Of T).SqlExpression
+    'Public MustOverride Property Libelle As String
 #End Region
 
 #Region "Prédicat"
     Public MustOverride Function Accept(element As T) As Boolean Implements ICritere(Of T).Accept
+#End Region
+
+#Region "Arguments"
+    ''' <summary>raison pour laquelle l'argument est invalide</summary>
+    Protected _ArgumentsInvalidExceptionMessage As String = "Arguments invalides pour ce prédicat"
+    Protected _NbArguments As Integer = 0
+
+    ''' <summary>définit les valeurs sur lesquelles ce critère va tester</summary>
+    Public Sub SetArguments(ByVal ParamArray args() As Object)
+        If IsArgumentsInvalid(args) Then
+            Throw New ArgumentException(_ArgumentsInvalidExceptionMessage)
+        Else
+            SetValeursArguments(args)
+        End If
+    End Sub
+
+    ''' <summary>On vérifie si tout les arguments attendus ont été bien renseigner</summary>
+    Protected Overridable Function IsArgumentsInvalid(ParamArray args As Object()) As Boolean
+        Return False
+    End Function
+
+    ''' <summary>Définit les valeurs de ce critère</summary>
+    Protected Overridable Sub SetValeursArguments(ByVal ParamArray args() As Object)
+
+    End Sub
+
 #End Region
 
 #Region "Opérations"

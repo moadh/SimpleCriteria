@@ -29,14 +29,14 @@
 
 #Region "Arguments"
 
-    Protected Overrides Sub InitValeurs(ParamArray args() As Object)
+    Protected Overrides Sub SetValeursArguments(ParamArray args() As Object)
         _BorneInferieur = CDec(args(0))
         _BorneSuperieur = CDec(args(1))
     End Sub
 
-    Protected Overrides Function IsInvalidValeurs(ParamArray args() As Object) As Boolean
+    Protected Overrides Function IsArgumentsInvalid(ParamArray args() As Object) As Boolean
         _NbArguments = 2
-        _ArgumentsInvalid = "pour le critère NbComprisEntre il faut définir deux nombres non nulle comme argument"
+        _ArgumentsInvalidExceptionMessage = "pour le critère NbComprisEntre il faut définir deux nombres non nulle comme argument"
         Return IsNothing(args) OrElse args.Count <> _NbArguments OrElse Not IsNumeric(args(0)) OrElse Not IsNumeric(args(1))
     End Function
 

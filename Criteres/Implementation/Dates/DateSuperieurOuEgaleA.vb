@@ -32,13 +32,13 @@
 
 #Region "Arguments"
 
-    Protected Overrides Sub InitValeurs(ParamArray args() As Object)
+    Protected Overrides Sub SetValeursArguments(ParamArray args() As Object)
         _Valeur = CDate(args(0))
     End Sub
 
-    Protected Overrides Function IsInvalidValeurs(ParamArray args() As Object) As Boolean
+    Protected Overrides Function IsArgumentsInvalid(ParamArray args() As Object) As Boolean
         _NbArguments = 1
-        _ArgumentsInvalid = "pour le critère DateSuperieurA il faut définir une date non nulle comme argument"
+        _ArgumentsInvalidExceptionMessage = "pour le critère DateSuperieurA il faut définir une date non nulle comme argument"
         Return IsNothing(args) OrElse args.Count <> _NbArguments OrElse Not IsDate(CStr(args(0)))
     End Function
 

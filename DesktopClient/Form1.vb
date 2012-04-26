@@ -33,7 +33,7 @@ Public Class Form1
 
 
         Dim c2 As New NbStrictementSuperieurA(Of CR)
-        c2.SetValeurCondition(5)
+        c2.SetArguments(5)
         c2.ValeurElementApartirDe(Function(a As CR) (a._AMs(3).ValueB))
 
 
